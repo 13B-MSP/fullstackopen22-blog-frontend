@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState } from 'react'
+import PropTypes from 'prop-types'
 
 const Blog = ({ blog, incrementLikes, removeBlog, username }) => {
   const [showDetails, setShowDetails] = useState(false)
@@ -22,12 +23,19 @@ const Blog = ({ blog, incrementLikes, removeBlog, username }) => {
       </div>
       <button
         onClick={removeBlog}
-        style={{ display: showRemove ? '': 'none'}}>
+        style={{ display: showRemove ? '': 'none' }}>
           remove
       </button>
       <button onClick={() => toggleShowDetails()}>Hide details</button>
     </div>
-  </div>  
+  </div>
+}
+
+Blog.propTypes = {
+  blog: PropTypes.object.isRequired,
+  incrementLikes: PropTypes.func.isRequired,
+  removeBlog: PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired
 }
 
 export default Blog
