@@ -9,17 +9,17 @@ const Blog = ({ blog, incrementLikes, removeBlog, username }) => {
   const showRemove = blog.user && blog.user.username === username
 
   return <div>
-    <div style={{ display: showDetails ? 'none': '' }}>
-      <h3>{blog.title}</h3>
+    <div style={{ display: showDetails ? 'none': '' }} className="simpleView">
+      <h3 className='title'>{blog.title}</h3>
       <button onClick={() => toggleShowDetails()}>Show details</button>
     </div>
-    <div style={{ display: showDetails ? '': 'none' }}>
+    <div style={{ display: showDetails ? '': 'none' }} className="detailsView">
       <h3>{blog.title}</h3>
       <div>by {blog.author}</div>
       <div><a href={blog.url}>Link</a></div>
       <div>
         likes: {blog.likes}
-        <button onClick={incrementLikes}>like</button>
+        <button className="likeBtn" onClick={incrementLikes}>like</button>
       </div>
       <button
         onClick={removeBlog}
